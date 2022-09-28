@@ -17,6 +17,11 @@ ShowPostNavLinks: yes
 categories: "data-analytics"
 tags: ["sql"]
 series: []
+cover:
+    image: "img/20220429_moving_average_sql/moving_avg.jpeg"
+    responsiveImages: true
+    # hidden: false
+    relative: false
 ---
 
 In order to reveal the underlying signal in a dataset, moving averages can assist in smoothing out the noise.They give up timeliness in exchange for greater precision in the underlying signal because they are behind the actual signal.They could be used to report metrics or send out alerts when it's more important to know if there is a change than to notice it right away.For important metrics, a 7-day moving average is typically preferable to weekly reporting because you will notice changes sooner.This can be implemented in SQL in a number of different ways, each with its own set of tradeoffs and potential pitfalls.

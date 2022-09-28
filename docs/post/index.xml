@@ -31,6 +31,15 @@ flowchart LR B(Views) --&gt;|Model| C(Explore) subgraph data modelling direction
     </item>
     
     <item>
+      <title>Clustering for Segmentation</title>
+      <link>https://truonghm.github.io/blog/post/20220513_clustering_for_segmentation/</link>
+      <pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://truonghm.github.io/blog/post/20220513_clustering_for_segmentation/</guid>
+      <description>Dealing with thousands of different items is difficult. When you&amp;rsquo;ve got a couple of dozen you can view them together, but as you get into the hundreds, thousands and beyond it becomes necessary to group items to make sense of them. For example if you&amp;rsquo;ve got a list of customers you might group them by state, or by annual spend. But sometimes it would be useful to split them into a few groups using some heuristic criteria; clustering is a powerful technique to do this.</description>
+    </item>
+    
+    <item>
       <title>2021 mid-year review</title>
       <link>https://truonghm.github.io/blog/post/20210701_2021_mid_year_review/</link>
       <pubDate>Thu, 01 Jul 2021 00:00:00 +0000</pubDate>

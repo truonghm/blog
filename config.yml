@@ -64,17 +64,18 @@ params:
     images: ["papermod-cover.png"]
     
     homeInfoParams:
-        Title: "a blog about learning"
+        Title: "Truong Hoang"
         Content: >
             Welcome to my blog. This is where I attempt to write about what I learn, including, 
             
             but not limited to data science and math. 
-            
-            You can find my projects on my Github as linked below.
+          
     
     socialIcons:
         - name: github
           url: "https://github.com/truonghm"
+        - name: linkedin
+          url: "https://www.linkedin.com/in/truonghm"
         - name: RsS
           url: "index.xml"
           

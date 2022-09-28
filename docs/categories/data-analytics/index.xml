@@ -20,5 +20,14 @@
       <description>In order to reveal the underlying signal in a dataset, moving averages can assist in smoothing out the noise.They give up timeliness in exchange for greater precision in the underlying signal because they are behind the actual signal.They could be used to report metrics or send out alerts when it&amp;rsquo;s more important to know if there is a change than to notice it right away.For important metrics, a 7-day moving average is typically preferable to weekly reporting because you will notice changes sooner.</description>
     </item>
     
+    <item>
+      <title>Clustering for Segmentation</title>
+      <link>https://truonghm.github.io/blog/post/20220513_clustering_for_segmentation/</link>
+      <pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://truonghm.github.io/blog/post/20220513_clustering_for_segmentation/</guid>
+      <description>Dealing with thousands of different items is difficult. When you&amp;rsquo;ve got a couple of dozen you can view them together, but as you get into the hundreds, thousands and beyond it becomes necessary to group items to make sense of them. For example if you&amp;rsquo;ve got a list of customers you might group them by state, or by annual spend. But sometimes it would be useful to split them into a few groups using some heuristic criteria; clustering is a powerful technique to do this.</description>
+    </item>
+    
   </channel>
 </rss>

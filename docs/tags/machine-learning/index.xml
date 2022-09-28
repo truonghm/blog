@@ -1,25 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>sql on truonghm</title>
-    <link>https://truonghm.github.io/blog/tags/sql/</link>
-    <description>Recent content in sql on truonghm</description>
+    <title>machine-learning on truonghm</title>
+    <link>https://truonghm.github.io/blog/tags/machine-learning/</link>
+    <description>Recent content in machine-learning on truonghm</description>
     <image>
       <url>https://truonghm.github.io/blog/papermod-cover.png</url>
       <link>https://truonghm.github.io/blog/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://truonghm.github.io/blog/tags/sql/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Computing Moving Average in SQL</title>
-      <link>https://truonghm.github.io/blog/post/20220429_moving_average_sql/</link>
-      <pubDate>Fri, 29 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://truonghm.github.io/blog/post/20220429_moving_average_sql/</guid>
-      <description>In order to reveal the underlying signal in a dataset, moving averages can assist in smoothing out the noise.They give up timeliness in exchange for greater precision in the underlying signal because they are behind the actual signal.They could be used to report metrics or send out alerts when it&amp;rsquo;s more important to know if there is a change than to notice it right away.For important metrics, a 7-day moving average is typically preferable to weekly reporting because you will notice changes sooner.</description>
-    </item>
-    
+    <lastBuildDate>Tue, 28 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://truonghm.github.io/blog/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Clustering for Segmentation</title>
       <link>https://truonghm.github.io/blog/post/20220513_clustering_for_segmentation/</link>

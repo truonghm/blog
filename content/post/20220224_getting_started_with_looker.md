@@ -17,6 +17,11 @@ ShowPostNavLinks: yes
 categories: "learning"
 tags: ["looker", "bi"]
 series: []
+cover:
+    image: "img/20220224_getting_started_with_looker/looker.jpg"
+    responsiveImages: true
+    # hidden: false
+    relative: false
 ---
 
 # Terms & Concepts
