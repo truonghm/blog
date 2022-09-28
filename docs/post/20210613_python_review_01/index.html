@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Ôn tập Python - mutable/immutable object | truonghm</title>
+<meta name="keywords" content="python, OOP">
+<meta name="description" content="Ôn tập lại Python 1 tí cho vui - Phần 1: mutable/immutable object Đây là bài viết đầu tiên trong series ôn tập lại 1 số kiến thức trong Python của mình, dự kiến sẽ gồm các phần sau:
+mutable/immutable objects functional programming in Python OOP in Python iterable list,dictionary, tuple &amp; set handling path generator handling exception handling path input/output others (bitwise operator, numpy, pandas, matplotlib) Mutable/Immutable là gì Có 2 loại object trong Python: mutable (có thể thay đổi) và immutable (không thể thay đổi).">
+<meta name="author" content="truonghm">
+<link rel="canonical" href="https://truonghm.github.io/blog/post/20210613_python_review_01/">
+<link crossorigin="anonymous" href="/blog/assets/css/stylesheet.b051ed722f27ec3487b049c4032fe0d8c2d8a8ae4bd72dffe9a950bc1adc78ca.css" integrity="sha256-sFHtci8n7DSHsEnEAy/g2MLYqK5L1y3/6alQvBrceMo=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/blog/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://truonghm.github.io/blog/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://truonghm.github.io/blog/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://truonghm.github.io/blog/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://truonghm.github.io/blog/apple-touch-icon.png">
+<link rel="mask-icon" href="https://truonghm.github.io/blog/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Ôn tập Python - mutable/immutable object" />
+<meta property="og:description" content="Ôn tập lại Python 1 tí cho vui - Phần 1: mutable/immutable object Đây là bài viết đầu tiên trong series ôn tập lại 1 số kiến thức trong Python của mình, dự kiến sẽ gồm các phần sau:
+mutable/immutable objects functional programming in Python OOP in Python iterable list,dictionary, tuple &amp; set handling path generator handling exception handling path input/output others (bitwise operator, numpy, pandas, matplotlib) Mutable/Immutable là gì Có 2 loại object trong Python: mutable (có thể thay đổi) và immutable (không thể thay đổi)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://truonghm.github.io/blog/post/20210613_python_review_01/" /><meta property="og:image" content="https://truonghm.github.io/blog/papermod-cover.png"/><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-06-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-06-13T00:00:00+00:00" />
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://truonghm.github.io/blog/papermod-cover.png"/>
+
+<meta name="twitter:title" content="Ôn tập Python - mutable/immutable object"/>
+<meta name="twitter:description" content="Ôn tập lại Python 1 tí cho vui - Phần 1: mutable/immutable object Đây là bài viết đầu tiên trong series ôn tập lại 1 số kiến thức trong Python của mình, dự kiến sẽ gồm các phần sau:
+mutable/immutable objects functional programming in Python OOP in Python iterable list,dictionary, tuple &amp; set handling path generator handling exception handling path input/output others (bitwise operator, numpy, pandas, matplotlib) Mutable/Immutable là gì Có 2 loại object trong Python: mutable (có thể thay đổi) và immutable (không thể thay đổi)."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://truonghm.github.io/blog/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Ôn tập Python - mutable/immutable object",
+      "item": "https://truonghm.github.io/blog/post/20210613_python_review_01/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Ôn tập Python - mutable/immutable object",
+  "name": "Ôn tập Python - mutable\/immutable object",
+  "description": "Ôn tập lại Python 1 tí cho vui - Phần 1: mutable/immutable object Đây là bài viết đầu tiên trong series ôn tập lại 1 số kiến thức trong Python của mình, dự kiến sẽ gồm các phần sau:\nmutable/immutable objects functional programming in Python OOP in Python iterable list,dictionary, tuple \u0026amp; set handling path generator handling exception handling path input/output others (bitwise operator, numpy, pandas, matplotlib) Mutable/Immutable là gì Có 2 loại object trong Python: mutable (có thể thay đổi) và immutable (không thể thay đổi).",
+  "keywords": [
+    "python", "OOP"
+  ],
+  "articleBody": "Ôn tập lại Python 1 tí cho vui - Phần 1: mutable/immutable object Đây là bài viết đầu tiên trong series ôn tập lại 1 số kiến thức trong Python của mình, dự kiến sẽ gồm các phần sau:\nmutable/immutable objects functional programming in Python OOP in Python iterable list,dictionary, tuple \u0026 set handling path generator handling exception handling path input/output others (bitwise operator, numpy, pandas, matplotlib) Mutable/Immutable là gì Có 2 loại object trong Python: mutable (có thể thay đổi) và immutable (không thể thay đổi).\nCác kiểu dữ liệu nằm ở nhóm immutable: int, float, bool, str, tuple Các kiểu dữ liệu nằm ở nhóm mutable: list, set, dict Để hiểu rõ mutable và immutable là gì, ta xét ví dụ sau:\n# vi du 1 x = [1,2,3] y = x y.append(4) print(x) [1, 2, 3, 4] # vi du 2 x = (1,2,3) y=x y = (1,2,3,4) print(x) (1, 2, 3) Ở ví dụ 1, biến x được tạo ra và chứa 1 list là [1,2,3]. Biến y sau đó được tạo ra và trỏ về biến x. Khi thay đổi y, x cũng thay đổi theo. Ở ví dụ 2, biến x được tạo ra và chứa 1 tuple là (1,2,3). Biến y sau đó được tạo ra và trỏ về biến x. Khi thay đổi y, x không thay đổi. Name và Object Ví dụ trên xảy ra là vì trong Python, một biến (variable) thực chất là tên (name) của một object. Nói cách khác, ta có thể nói việc đặt tên biến trong Python là việc bind (nối) một cái tên với một vật thể/đối tượng nào đó, gọi là một object.\nNhư vậy, khi sử dụng một biến, tức là ta đang gọi tên của object. Nếu tên chưa được gắn với object nào, ta gặp exception NameError.\n# name da duoc gan voi object a = 17 print(a) 17 # name chua gan voi object print(money) --------------------------------------------------------------------------- NameError Traceback (most recent call last) in 1 # name chua gan voi object ----\u003e 2 print(money) NameError: name 'money' is not defined ID và TYPE Python có hàm id() được sử dụng để xác định danh tính của một object. Theo documentation của Python, ta có:\nhelp(id) Help on built-in function id in module builtins: id(obj, /) Return the identity of an object. This is guaranteed to be unique among simultaneously existing objects. (CPython uses the object's memory address.) id được trả về là một số nguyên duy nhất (unique) - đây chính là địa chỉ của object đó trong bộ nhớ máy tính.\nTa xét 2 ví dụ dưới:\n# Vi du 1 var1 = 'mot con vit' var2 = 'mot con vit' print(id(var1)) print(id(var2)) print('Hai bien chung tro ve 1 object?: ', var1 is var2) print('Hai bien co gia tri bang nhau?: ', var1 == var2) 2086804108080 2086804108912 Hai bien chung tro ve 1 object?: False Hai bien co gia tri bang nhau?: True # Vi du 1 var1 = 'mot con vit' var2 = var1 print(id(var1)) print(id(var2)) print('Hai bien chung tro ve 1 object?: ', var1 is var2) print('Hai bien co gia tri bang nhau?: ', var1 == var2) 2086804226288 2086804226288 Hai bien chung tro ve 1 object?: True Hai bien co gia tri bang nhau?: True Lưu ý rằng ở 2 ví dụ trên, ta sử dụng identity operator is và comarison operator == cho 2 mục đích khác nhau. Qua 2 ví dụ, ta thấy:\nỞ ví dụ 1, string 'mot con vit' là một object được gán riêng rẽ cho 2 variable/name là var1 và var2.\nTrong trường hợp này, Python tạo ra một object 'mot con vit' và “xếp” nó vào một địa chỉ trong bộ nhớ.\nSau đó, Python tiếp tục tạo ra biến var2 với cùng giá trị 'mot con vit'. Lúc này, Python sẽ KHÔNG trỏ biến var2 về cùng object 'mot con vit' đã tạo ra cho var1 mà lại tạo ra 1 object mới, cho dù 2 object này “giống nhau”.\nTa có thể kiểm tra xem var1 và var2 có cùng trò về 1 object không bằng cách kiểm tra id của 2 biến -\u003e khác nhau.\nỞ ví dụ 2, string 'mot con vit' là một object được gán cho var1, sau đó ta cho var2 trỏ về var1, tức là cùng trò về 1 object.\nTương tự như trên, Python tạo ra một object 'mot con vit', “xếp” nó vào một địa chỉ trong bộ nhớ, đồng thời tạo ra biến var1 trò về object vừa tạo.\nSau đó, Python tiếp tục tạo ra biến var2, tuy nhiên gán cho var2 bằng chính var1 . Lúc này, Python trỏ biến var2 về cùng object 'mot con vit' đã tạo ra cho var1, hay nói cách khác, object 'mot con vit' hiện có 2 name là var1 và var2.\nKhi kiểm tra id của var1 và var2 -\u003e bằng nhau.\nImmutable object Như đã đề cập ở trên, các kiểu dữ liệu (type) là immutable trong Python bao gồm: int, float, bool, str, tuple, unicode.\nim·mu·ta·ble (/i(m)ˈmyo͞odəb(ə)l/, adjective): unchanging over time or unable to be changed.\nVerb: mutate\nVí dụ, với kiểu int, ta có ví dụ:\nx = 2021 print(type(x), id(x), x) x = 2020 print(type(x), id(x), x) ",
+  "wordCount" : "2029",
+  "inLanguage": "en",
+  "datePublished": "2021-06-13T00:00:00Z",
+  "dateModified": "2021-06-13T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "truonghm"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://truonghm.github.io/blog/post/20210613_python_review_01/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "truonghm",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://truonghm.github.io/blog/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://truonghm.github.io/blog" accesskey="h" title="truonghm (Alt + H)">truonghm</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://truonghm.github.io/blog/archives/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://truonghm.github.io/blog/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://truonghm.github.io/blog/series" title="Series">
+                    <span>Series</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://truonghm.github.io/blog/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://truonghm.github.io/blog">Home</a>&nbsp;»&nbsp;<a href="https://truonghm.github.io/blog/post/">Posts</a></div>
+    <h1 class="post-title">
+      Ôn tập Python - mutable/immutable object
+    </h1>
+    <div class="post-meta"><span title='2021-06-13 00:00:00 +0000 UTC'>June 13, 2021</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;truonghm
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%c3%b4n-t%e1%ba%adp-l%e1%ba%a1i-python-1-t%c3%ad-cho-vui---ph%e1%ba%a7n-1-mutableimmutable-object" aria-label="Ôn tập lại Python 1 tí cho vui - Phần 1: mutable/immutable object">Ôn tập lại Python 1 tí cho vui - Phần 1: mutable/immutable object</a><ul>
+                        
+                <li>
+                    <a href="#mutableimmutable-l%c3%a0-g%c3%ac" aria-label="Mutable/Immutable là gì">Mutable/Immutable là gì</a><ul>
+                        
+                <li>
+                    <a href="#name-v%c3%a0-object" aria-label="Name và Object">Name và Object</a></li>
+                <li>
+                    <a href="#id-v%c3%a0-type" aria-label="ID và TYPE">ID và TYPE</a></li>
+                <li>
+                    <a href="#immutable-object" aria-label="Immutable object">Immutable object</a></li>
+                <li>
+                    <a href="#mutable-object" aria-label="Mutable object">Mutable object</a></li>
+                <li>
+                    <a href="#m%e1%bb%99t-s%e1%bb%91-l%c6%b0u-%c3%bd" aria-label="Một số lưu ý">Một số lưu ý</a><ul>
+                        
+                <li>
+                    <a href="#l%c6%b0u-%c3%bd-khi-d%c3%b9ng-dictionary" aria-label="Lưu ý khi dùng dictionary">Lưu ý khi dùng dictionary</a></li>
+                <li>
+                    <a href="#l%c6%b0u-%c3%bd-khi-d%c3%b9ng-list-v%c3%a0-tuple" aria-label="Lưu ý khi dùng list và tuple">Lưu ý khi dùng list và tuple</a></li></ul>
+                </li>
+                <li>
+                    <a href="#pandas-dataframe" aria-label="Pandas dataframe">Pandas dataframe</a></li></ul>
+                </li>
+                <li>
+                    <a href="#k%e1%ba%bft-lu%e1%ba%adn" aria-label="Kết luận">Kết luận</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="ôn-tập-lại-python-1-tí-cho-vui---phần-1-mutableimmutable-object">Ôn tập lại Python 1 tí cho vui - Phần 1: mutable/immutable object<a hidden class="anchor" aria-hidden="true" href="#ôn-tập-lại-python-1-tí-cho-vui---phần-1-mutableimmutable-object">#</a></h1>
+<p>Đây là bài viết đầu tiên trong series ôn tập lại 1 số kiến thức trong Python của mình, dự kiến sẽ gồm các phần sau:</p>
+<ol>
+<li>mutable/immutable objects</li>
+<li>functional programming in Python</li>
+<li>OOP in Python</li>
+<li>iterable</li>
+<li>list,dictionary, tuple &amp; set</li>
+<li>handling path</li>
+<li>generator</li>
+<li>handling exception</li>
+<li>handling path</li>
+<li>input/output</li>
+<li>others (bitwise operator, numpy, pandas, matplotlib)</li>
+</ol>
+<h2 id="mutableimmutable-là-gì">Mutable/Immutable là gì<a hidden class="anchor" aria-hidden="true" href="#mutableimmutable-là-gì">#</a></h2>
+<p>Có 2 loại object trong Python: mutable (có thể thay đổi) và immutable (không thể thay đổi).</p>
+<ul>
+<li>Các kiểu dữ liệu nằm ở nhóm <strong>immutable</strong>: int, float, bool, str, tuple</li>
+<li>Các kiểu dữ liệu nằm ở nhóm <strong>mutable</strong>: list, set, dict</li>
+</ul>
+<p>Để hiểu rõ mutable và immutable là gì, ta xét ví dụ sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># vi du 1</span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> x
+</span></span><span style="display:flex;"><span>y<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span>print(x)
+</span></span></code></pre></div><pre><code>[1, 2, 3, 4]
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># vi du 2</span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>y<span style="color:#f92672">=</span>x
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span>print(x)
+</span></span></code></pre></div><pre><code>(1, 2, 3)
+</code></pre>
+<ul>
+<li>Ở ví dụ 1, biến <code>x</code> được tạo ra và chứa 1 list là [1,2,3]. Biến <code>y</code> sau đó được tạo ra và trỏ về biến <code>x</code>. Khi thay đổi <code>y</code>, <code>x</code> cũng thay đổi theo.</li>
+<li>Ở ví dụ 2, biến <code>x</code> được tạo ra và chứa 1 tuple là (1,2,3). Biến <code>y</code> sau đó được tạo ra và trỏ về biến <code>x</code>. Khi thay đổi <code>y</code>, <code>x</code> không thay đổi.</li>
+</ul>
+<h3 id="name-và-object">Name và Object<a hidden class="anchor" aria-hidden="true" href="#name-và-object">#</a></h3>
+<p>Ví dụ trên xảy ra là vì trong Python, một biến (variable) thực chất là tên (name) của một object. Nói cách khác, ta có thể nói việc đặt tên biến trong Python là việc bind (nối) một cái tên với một vật thể/đối tượng nào đó, gọi là một object.</p>
+<p>Như vậy, khi sử dụng một biến, tức là ta đang gọi tên của object. Nếu tên chưa được gắn với object nào, ta gặp exception <code>NameError</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># name da duoc gan voi object</span>
+</span></span><span style="display:flex;"><span>a <span style="color:#f92672">=</span> <span style="color:#ae81ff">17</span>
+</span></span><span style="display:flex;"><span>print(a)
+</span></span></code></pre></div><pre><code>17
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># name chua gan voi object</span>
+</span></span><span style="display:flex;"><span>print(money)
+</span></span></code></pre></div><pre><code>---------------------------------------------------------------------------
+
+NameError                                 Traceback (most recent call last)
+
+&lt;ipython-input-4-c6760d6ed8bb&gt; in &lt;module&gt;
+      1 # name chua gan voi object
+----&gt; 2 print(money)
+
+
+NameError: name 'money' is not defined
+</code></pre>
+<h3 id="id-và-type">ID và TYPE<a hidden class="anchor" aria-hidden="true" href="#id-và-type">#</a></h3>
+<p>Python có hàm <code>id()</code> được sử dụng để xác định danh tính của một object. Theo documentation của Python, ta có:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>help(id)
+</span></span></code></pre></div><pre><code>Help on built-in function id in module builtins:
+
+id(obj, /)
+    Return the identity of an object.
+    
+    This is guaranteed to be unique among simultaneously existing objects.
+    (CPython uses the object's memory address.)
+</code></pre>
+<p><code>id</code> được trả về là một số nguyên duy nhất (unique) - đây chính là địa chỉ của object đó trong bộ nhớ máy tính.</p>
+<p>Ta xét 2 ví dụ dưới:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Vi du 1</span>
+</span></span><span style="display:flex;"><span>var1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;mot con vit&#39;</span>
+</span></span><span style="display:flex;"><span>var2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;mot con vit&#39;</span>
+</span></span><span style="display:flex;"><span>print(id(var1))
+</span></span><span style="display:flex;"><span>print(id(var2))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;Hai bien chung tro ve 1 object?: &#39;</span>, var1 <span style="color:#f92672">is</span> var2)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;Hai bien co gia tri bang nhau?: &#39;</span>, var1 <span style="color:#f92672">==</span> var2)
+</span></span></code></pre></div><pre><code>2086804108080
+2086804108912
+Hai bien chung tro ve 1 object?:  False
+Hai bien co gia tri bang nhau?:  True
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Vi du 1</span>
+</span></span><span style="display:flex;"><span>var1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;mot con vit&#39;</span>
+</span></span><span style="display:flex;"><span>var2 <span style="color:#f92672">=</span> var1
+</span></span><span style="display:flex;"><span>print(id(var1))
+</span></span><span style="display:flex;"><span>print(id(var2))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;Hai bien chung tro ve 1 object?: &#39;</span>, var1 <span style="color:#f92672">is</span> var2)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;Hai bien co gia tri bang nhau?: &#39;</span>, var1 <span style="color:#f92672">==</span> var2)
+</span></span></code></pre></div><pre><code>2086804226288
+2086804226288
+Hai bien chung tro ve 1 object?:  True
+Hai bien co gia tri bang nhau?:  True
+</code></pre>
+<p>Lưu ý rằng ở 2 ví dụ trên, ta sử dụng identity operator <code>is</code> và comarison operator <code>==</code> cho 2 mục đích khác nhau. Qua 2 ví dụ, ta thấy:</p>
+<ol>
+<li>
+<p>Ở ví dụ 1, string <code>'mot con vit'</code> là một object được gán riêng rẽ cho 2 variable/name là <code>var1</code> và <code>var2</code>.</p>
+<ul>
+<li>
+<p>Trong trường hợp này, Python tạo ra một object <code>'mot con vit'</code> và &ldquo;xếp&rdquo; nó vào một địa chỉ trong bộ nhớ.</p>
+</li>
+<li>
+<p>Sau đó, Python tiếp tục tạo ra biến <code>var2</code> với cùng giá trị <code>'mot con vit'</code>. Lúc này, Python sẽ KHÔNG trỏ biến <code>var2</code> về cùng object <code>'mot con vit'</code> đã tạo ra cho <code>var1</code> mà lại tạo ra 1 object mới, cho dù 2 object này &ldquo;giống nhau&rdquo;.</p>
+</li>
+<li>
+<p>Ta có thể kiểm tra xem <code>var1</code> và <code>var2</code> có cùng trò về 1 object không bằng cách kiểm tra <code>id</code> của 2 biến -&gt; khác nhau.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Ở ví dụ 2, string <code>'mot con vit'</code> là một object được gán cho <code>var1</code>, sau đó ta cho <code>var2</code> trỏ về <code>var1</code>, tức là cùng trò về 1 object.</p>
+<ul>
+<li>
+<p>Tương tự như trên, Python tạo ra một object <code>'mot con vit'</code>, &ldquo;xếp&rdquo; nó vào một địa chỉ trong bộ nhớ, đồng thời tạo ra biến <code>var1</code> trò về object vừa tạo.</p>
+</li>
+<li>
+<p>Sau đó, Python tiếp tục tạo ra biến <code>var2</code>, tuy nhiên gán cho <code>var2</code> bằng chính <code>var1</code> . Lúc này, Python trỏ biến <code>var2</code> về cùng object <code>'mot con vit'</code> đã tạo ra cho <code>var1</code>, hay nói cách khác, object <code>'mot con vit'</code> hiện có 2 name là <code>var1</code> và <code>var2</code>.</p>
+</li>
+<li>
+<p>Khi kiểm tra id của <code>var1</code> và <code>var2</code> -&gt; bằng nhau.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="immutable-object">Immutable object<a hidden class="anchor" aria-hidden="true" href="#immutable-object">#</a></h3>
+<p>Như đã đề cập ở trên, các kiểu dữ liệu (type) là immutable trong Python bao gồm: int, float, bool, str, tuple, unicode.</p>
+<p><em>im·mu·ta·ble (/i(m)ˈmyo͞odəb(ə)l/, adjective):  unchanging over time or unable to be changed.</em><br>
+<em>Verb: mutate</em></p>
+<p>Ví dụ, với kiểu <code>int</code>, ta có ví dụ:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>x <span style="color:#f92672">=</span> <span style="color:#ae81ff">2021</span>
+</span></span><span style="display:flex;"><span>print(type(x), id(x), x)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> <span style="color:#ae81ff">2020</span>
+</span></span><span style="display:flex;"><span>print(type(x), id(x), x)
+</span></span></code></pre></div><pre><code>&lt;class 'int'&gt; 2086803346352 2021
+&lt;class 'int'&gt; 2086803347344 2020
+</code></pre>
+<p>Nhìn qua ví dụ này, có thể thấy dường như <code>x</code> đã thay đổi, và <code>type</code> của <code>x</code> là <code>int</code>. Nếu vậy thì tại sao lại nói object kiểu <code>int</code> là immutable?</p>
+<p>Tuy nhiên, như đã nói, <code>x</code> đơn thuần chỉ là một cái tên (name), và tồn tại riêng biệt với object <code>2021</code> và <code>2020</code> là 2 object khác nhau.</p>
+<p>Khi thực hiện gán <code>x</code> thành <code>2020</code>, ta không thay đổi (mutate) bất kì object nào hết mà chỉ đơn thuần là <strong>chuyển tên</strong> <code>x</code> từ <code>2021</code> sang cho <code>2020</code>. Ở 2 câu <code>print</code> phía trên, có thể thấy <code>id</code> cũng bị thay đổi theo, có nghĩa là <code>x</code> đã đổi từ object này sang object khác.</p>
+<p>Tương tự với các immutable object type khác như tuple, ta có:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>tup1 <span style="color:#f92672">=</span> (<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>)
+</span></span><span style="display:flex;"><span>print(id(tup1))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tup1 <span style="color:#f92672">=</span> (<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>)
+</span></span><span style="display:flex;"><span>print(id(tup1))
+</span></span></code></pre></div><pre><code>2086803422464
+2086803345088
+</code></pre>
+<p>Do tuple là kiểu dữ liệu immutable nên không thể thay đổi các element bên trong, cũng không đi kèm các method dùng để thay đổi element bên trong giống như list. Nếu cố thay đổi, Python sẽ trả về <code>exception</code> là TypeError với thông báo: <em>&rsquo;tuple&rsquo; object does not support item assignment</em>, hiểu là <em>object thuộc kiểu &rsquo;tuple&rsquo; không hỗ trợ gán giá trị cho thành phần.</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(tup1[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>tup1[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gia tri moi&#39;</span>
+</span></span></code></pre></div><pre><code>7
+
+
+
+---------------------------------------------------------------------------
+
+TypeError                                 Traceback (most recent call last)
+
+&lt;ipython-input-10-ab6f906bfb92&gt; in &lt;module&gt;
+      1 print(tup1[0])
+----&gt; 2 tup1[0] = 'gia tri moi'
+
+
+TypeError: 'tuple' object does not support item assignment
+</code></pre>
+<h3 id="mutable-object">Mutable object<a hidden class="anchor" aria-hidden="true" href="#mutable-object">#</a></h3>
+<p>Các kiểu dữ liệu là mutable trong Python bao gồm: list, set, dictionary.</p>
+<p><em>mu·ta·ble (/ˈmyo͞odəb(ə)l/, adjective):  liable to change.</em></p>
+<p>Ví dụ, đối với <code>list</code>, chúng ta biết rằng dữ liệu kiểu <code>list</code> có thể thay đổi được element bên trong.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>my_list <span style="color:#f92672">=</span> [<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>]
+</span></span><span style="display:flex;"><span>print(id(my_list), my_list)
+</span></span><span style="display:flex;"><span>my_list[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hai ban tay&#39;</span>
+</span></span><span style="display:flex;"><span>print(id(my_list), my_list)
+</span></span></code></pre></div><pre><code>2086803419776 [7, 8, 9]
+2086803419776 ['hai ban tay', 8, 9]
+</code></pre>
+<p>Như vậy, <code>id</code> của <code>my_list</code> vẫn giữ nguyên, thể hiện rằng object này vẫn được gắn vào name <code>my_list</code> và element đầu tiên của object đã thay đổi.</p>
+<p>Đồng thời, ví dụ đầu tiên ở bài viết cũng thể hiện về tính mutable của list:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>x <span style="color:#f92672">=</span> y <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>print(x <span style="color:#f92672">is</span> y, id(x) <span style="color:#f92672">==</span> id(y))
+</span></span><span style="display:flex;"><span>y<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span>print(x <span style="color:#f92672">is</span> y, id(x) <span style="color:#f92672">==</span> id(y))
+</span></span><span style="display:flex;"><span>print(x)
+</span></span><span style="display:flex;"><span>print(y)
+</span></span></code></pre></div><pre><code>True True
+True True
+[1, 2, 3, 4]
+[1, 2, 3, 4]
+</code></pre>
+<h3 id="một-số-lưu-ý">Một số lưu ý<a hidden class="anchor" aria-hidden="true" href="#một-số-lưu-ý">#</a></h3>
+<h4 id="lưu-ý-khi-dùng-dictionary">Lưu ý khi dùng dictionary<a hidden class="anchor" aria-hidden="true" href="#lưu-ý-khi-dùng-dictionary">#</a></h4>
+<p>Theo như <a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">documentation</a> của Python, ta có:</p>
+<blockquote>
+<p>Unlike sequences, which are indexed by a range of numbers, dictionaries are indexed by keys, which can be any immutable type; strings and numbers can always be keys. Tuples can be used as keys if they contain only strings, numbers, or tuples; if a tuple contains any mutable object either directly or indirectly, it cannot be used as a key. You can’t use lists as keys, since lists can be modified in place using index assignments, slice assignments, or methods like append() and extend().</p>
+</blockquote>
+<p>Đoạn trên có nghĩa là: <code>key</code> của dictionary chỉ có thể là các kiểu dữ liệu immutable. Do dictionary index dữ liệu theo <code>key</code> chứ không theo dãy số, vì vậy Python phải đảm bảo rằng các <code>key</code> là duy nhất và không thay đổi để việc indexing hợp lý và dễ dàng hơn.</p>
+<h4 id="lưu-ý-khi-dùng-list-và-tuple">Lưu ý khi dùng list và tuple<a hidden class="anchor" aria-hidden="true" href="#lưu-ý-khi-dùng-list-và-tuple">#</a></h4>
+<p>Ở ví dụ dưới đây, ta tạo ra 1 list và 1 tuple như sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>my_list <span style="color:#f92672">=</span> [(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>), <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>my_tuple <span style="color:#f92672">=</span> ([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>], <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>print(my_list, my_list[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>print(my_tuple, my_tuple[<span style="color:#ae81ff">0</span>])
+</span></span></code></pre></div><pre><code>[(1, 1), 2, 3] (1, 1)
+([1, 1], 2, 3) [1, 1]
+</code></pre>
+<p>Tiếp theo, chúng ta thử thay đổi element đầu tiên trong <code>my_list</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>my_list[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gia tri moi&#39;</span>
+</span></span></code></pre></div><pre><code>---------------------------------------------------------------------------
+
+TypeError                                 Traceback (most recent call last)
+
+&lt;ipython-input-14-db833de635ec&gt; in &lt;module&gt;
+----&gt; 1 my_list[0][0] = 'gia tri moi'
+
+
+TypeError: 'tuple' object does not support item assignment
+</code></pre>
+<p>Do element đầu tiên của <code>my_list</code> thuộc kiểu <code>tuple</code> nên Python trả về <code>TypeError</code>.</p>
+<p>Ngược lại, ta hoàn toàn có thể thay đổi element đầu của <code>my_tuple</code>, do element này lại thuộc kiểu <code>list</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>my_tuple[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gia tri moi&#39;</span>
+</span></span></code></pre></div><p>Tất cả mọi thứ đến đoạn này thật ra đều dễ hiểu, tuy nhiên điều đặc biệt là những gì Python làm ở phía sau, cụ thể là việc tạo ra/thay đổi object trên bộ nhớ.</p>
+<p>Ta sẽ kiểm tra <code>id</code> của các object để xem đã có gì diễn ra:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>my_tuple <span style="color:#f92672">=</span> ([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>], <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>print(id(my_tuple), id(my_tuple[<span style="color:#ae81ff">0</span>]))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># thay doi gia tri dau tien cua my_tuple</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>my_tuple[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gia tri moi&#39;</span>
+</span></span><span style="display:flex;"><span>print(id(my_tuple), id(my_tuple[<span style="color:#ae81ff">0</span>]))
+</span></span></code></pre></div><pre><code>2086803810752 2086804234752
+2086803810752 2086804234752
+</code></pre>
+<p>Có thể thấy, id của cả <code>my_tuple</code> và <code>my_tuple[0]</code>, cho dù ta đã thay đổi <code>my_tuple[0][0]</code>. Có thể giải thích điều này như sau:</p>
+<ul>
+<li><code>my_tuple[0]</code> giữ nguyên <code>id</code> do đây là một <code>list</code>, và là mutable.</li>
+<li><code>my_tuple</code> giữ nguyên <code>id</code> do object gắn với <code>my_tuple</code> thật ra không thay đổi về nội dung bên trong: Nó vẫn bao gồm các element như vậy, cụ thể là có element đầu tiên vẫn giữ nguyên <code>id</code> gốc dù value bên trong thay đổi.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(my_tuple)
+</span></span></code></pre></div><pre><code>(['gia tri moi', 1], 2, 3)
+</code></pre>
+<h3 id="pandas-dataframe">Pandas dataframe<a hidden class="anchor" aria-hidden="true" href="#pandas-dataframe">#</a></h3>
+<p>Xét ví dụ sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df1 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;col1&#39;</span>:[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>], <span style="color:#e6db74">&#39;col2&#39;</span>:[<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>]})
+</span></span><span style="display:flex;"><span>df1
+</span></span></code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>col1</th>
+      <th>col2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(df1)
+</span></span><span style="display:flex;"><span>df2
+</span></span></code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>col1</th>
+      <th>col2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Theo như <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html?highlight=dataframe#pandas.DataFrame">documentation của pandas</a>, <code>pandas.DataFrame</code> có một parameter là <code>copy</code> nhận giá trị mặc định là <code>False</code>, với ý nghĩa là:</p>
+<blockquote>
+<p>copy : boolean, default False<br>
+Copy data from inputs. Only affects DataFrame / 2d ndarray input</p>
+</blockquote>
+<p>Như vậy khi <code>copy=False</code>, dữ liệu giữa <code>df1</code> và <code>df2</code> sẽ được chia sẻ với nhau, có nghĩa là khi thay đổi dữ liệu ở bản copy là <code>df2</code>, &ldquo;bản gốc&rdquo; <code>df1</code> cũng sẽ bị thay đổi theo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df2<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>]<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>df2
+</span></span></code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>col1</th>
+      <th>col2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df1
+</span></span></code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>col1</th>
+      <th>col2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Để tránh tình trạng này, ta đổi <code>copy</code> thành <code>False</code>, hoặc sử dụng method <code>copy</code> để tạo 1 deep copy:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># vi du lay tu documentation</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>s <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>], index<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#e6db74">&#34;b&#34;</span>])
+</span></span><span style="display:flex;"><span>s_deep_copy <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span>copy() <span style="color:#75715e">#mac dinh se tao ra deep copy</span>
+</span></span><span style="display:flex;"><span>s_shallow_copy <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span>copy(deep<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span></code></pre></div><p>Chúng ta có thể tìm hiểu thêm về shallow và deep copy tại <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.copy.html">documentation</a>.</p>
+<h2 id="kết-luận">Kết luận<a hidden class="anchor" aria-hidden="true" href="#kết-luận">#</a></h2>
+<p>Ở bài này, ta đã ôn lại về tính chất mutable và immutable của object trong Python, và tìm hiểu một số tình huống cần lưu ý khi làm việc với list, dictionary, tuple và dataframe.</p>
+<p>Việc hiểu rõ tính mutable và immutable là rất quan trọng, và sẽ giúp chúng ta tạo ra các bản copy của biến hiểu quả hơn, tránh các tình huống thay đổi giá trị của biến không mong muốn,  cũng như hiểu được các loại Exception thường xảy ra, nhất là khi làm việc với các kiểu dữ liệu collection (tuple, list, dictionary, set).</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://truonghm.github.io/blog/tags/python/">python</a></li>
+      <li><a href="https://truonghm.github.io/blog/tags/oop/">OOP</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://truonghm.github.io/blog/post/20210701_2021_mid_year_review/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>2021 mid-year review</span>
+  </a>
+  <a class="next" href="https://truonghm.github.io/blog/post/20210113_math_review_02/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Math Review 02 - Toán tổ hợp</span>
+  </a>
+</nav>
+
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Ôn tập Python - mutable/immutable object on twitter"
+        href="https://twitter.com/intent/tweet/?text=%c3%94n%20t%e1%ba%adp%20Python%20-%20mutable%2fimmutable%20object&amp;url=https%3a%2f%2ftruonghm.github.io%2fblog%2fpost%2f20210613_python_review_01%2f&amp;hashtags=python%2cOOP">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Ôn tập Python - mutable/immutable object on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2ftruonghm.github.io%2fblog%2fpost%2f20210613_python_review_01%2f&amp;title=%c3%94n%20t%e1%ba%adp%20Python%20-%20mutable%2fimmutable%20object&amp;summary=%c3%94n%20t%e1%ba%adp%20Python%20-%20mutable%2fimmutable%20object&amp;source=https%3a%2f%2ftruonghm.github.io%2fblog%2fpost%2f20210613_python_review_01%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Ôn tập Python - mutable/immutable object on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2ftruonghm.github.io%2fblog%2fpost%2f20210613_python_review_01%2f&title=%c3%94n%20t%e1%ba%adp%20Python%20-%20mutable%2fimmutable%20object">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Ôn tập Python - mutable/immutable object on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2ftruonghm.github.io%2fblog%2fpost%2f20210613_python_review_01%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Ôn tập Python - mutable/immutable object on whatsapp"
+        href="https://api.whatsapp.com/send?text=%c3%94n%20t%e1%ba%adp%20Python%20-%20mutable%2fimmutable%20object%20-%20https%3a%2f%2ftruonghm.github.io%2fblog%2fpost%2f20210613_python_review_01%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Ôn tập Python - mutable/immutable object on telegram"
+        href="https://telegram.me/share/url?text=%c3%94n%20t%e1%ba%adp%20Python%20-%20mutable%2fimmutable%20object&amp;url=https%3a%2f%2ftruonghm.github.io%2fblog%2fpost%2f20210613_python_review_01%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://truonghm.github.io/blog">truonghm</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+
+</html>

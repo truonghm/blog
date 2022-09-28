@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>vi on truonghm</title>
+    <link>https://truonghm.github.io/blog/tags/vi/</link>
+    <description>Recent content in vi on truonghm</description>
+    <image>
+      <url>https://truonghm.github.io/blog/papermod-cover.png</url>
+      <link>https://truonghm.github.io/blog/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 13 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://truonghm.github.io/blog/tags/vi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Math Review 02 - Toán tổ hợp</title>
+      <link>https://truonghm.github.io/blog/post/20210113_math_review_02/</link>
+      <pubDate>Wed, 13 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://truonghm.github.io/blog/post/20210113_math_review_02/</guid>
+      <description>library(tidyverse, quietly = TRUE) library(kableExtra, quietly = TRUE) Phần này tập trung vào ôn tập lại các kiến thức về tổ hợp/chỉnh hợp/hoán vị. Tham khảo một số bài tập được trích ra từ cuốn Combinatorics and Graph Theory - John Harris tại đây.
+Toán học tổ hợp Ngoài việc bản chất toán học tổ hợp (Combinatorics) đã khó, mọi thứ còn trở nên khó hơn vì mảng toán này có rất nhiều kí hiệu và thuật ngữ, cũng như sự khác biệt trong thuật ngữ của tiếng Anh và tiếng Việt.</description>
+    </item>
+    
+    <item>
+      <title>Math Review 01 - Hàm số mũ và hàm số logarit</title>
+      <link>https://truonghm.github.io/blog/post/20201221_math_review_01/</link>
+      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://truonghm.github.io/blog/post/20201221_math_review_01/</guid>
+      <description>library(tidyverse, quietly = TRUE) library(kableExtra) Hàm số mũ và hàm số logarit Hàm số mũ Định nghĩa
+Hàm số \(f(x) = b^x\) là một hàm số mũ nếu \(b&amp;gt;0\) và \(b \neq 1\).
+Tính chất
+\(f(0) = 1\), hay nói cách khác, mọi đồ thị của hàm số mũ đều đi qua điểm \((0,1)\), bất kể giá trị của \(b\).
+\(f(x) \neq 0\)
+\(f(x) &amp;gt; 0\)
+Tập xác định (domain - đầu vào) của \(f(x)\): \((-\infty, \infty)\), là các giá trị \(x\) khiến hàm số xác định</description>
+    </item>
+    
+  </channel>
+</rss>

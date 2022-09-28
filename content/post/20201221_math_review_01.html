@@ -1,0 +1,174 @@
+---
+title: "Math Review 01 - Hàm số mũ và hàm số logarit"
+author: "truonghm"
+date: '2020-12-25'
+showToc: true
+TocOpen: false
+draft: false
+hidemeta: false
+comments: false
+# description: "Desc Text."
+disableHLJS: false # to disable highlightjs
+disableShare: false
+hideSummary: true
+searchHidden: true
+ShowReadingTime: true
+ShowBreadCrumbs: true
+ShowPostNavLinks: true
+categories: ['learning']
+tags: ["math", "vi"]
+series: ["Math Review"]
+---
+
+
+
+<pre class="r"><code>library(tidyverse, quietly = TRUE)
+library(kableExtra)</code></pre>
+<div id="hàm-số-mũ-và-hàm-số-logarit" class="section level2">
+<h2>Hàm số mũ và hàm số logarit</h2>
+<div id="hàm-số-mũ" class="section level3">
+<h3>Hàm số mũ</h3>
+<p><strong>Định nghĩa</strong></p>
+<p>Hàm số <span class="math inline">\(f(x) = b^x\)</span> là một hàm số mũ nếu <span class="math inline">\(b&gt;0\)</span> và <span class="math inline">\(b \neq 1\)</span>.</p>
+<p><strong>Tính chất</strong></p>
+<ul>
+<li><p><span class="math inline">\(f(0) = 1\)</span>, hay nói cách khác, mọi đồ thị của hàm số mũ đều đi qua điểm <span class="math inline">\((0,1)\)</span>, bất kể giá trị của <span class="math inline">\(b\)</span>.</p></li>
+<li><p><span class="math inline">\(f(x) \neq 0\)</span></p></li>
+<li><p><span class="math inline">\(f(x) &gt; 0\)</span></p></li>
+<li><p>Tập xác định (domain - đầu vào) của <span class="math inline">\(f(x)\)</span>: <span class="math inline">\((-\infty, \infty)\)</span>, là các giá trị <span class="math inline">\(x\)</span> khiến hàm số xác định</p></li>
+<li><p>Khoảng biến thiên (range - đầu ra) của <span class="math inline">\(f(x)\)</span>: <span class="math inline">\((0, \infty)\)</span>, là các giá trị <span class="math inline">\(y\)</span> hợp lệ</p></li>
+<li><p>Nếu <span class="math inline">\(0&lt;b&lt;1\)</span>:</p>
+<ul>
+<li><span class="math inline">\(f(x) \to 0\)</span> khi <span class="math inline">\(x \to \infty\)</span></li>
+<li><span class="math inline">\(f(x) \to \infty\)</span> khi <span class="math inline">\(x\to-\infty\)</span></li>
+<li>Nói cách khác, <span class="math inline">\(f(x)\)</span> đồng biến (tăng) từ trái qua phải nếu <span class="math inline">\(0&lt;b&lt;1\)</span></li>
+</ul></li>
+<li><p>Nếu <span class="math inline">\(b&gt;1\)</span>:</p>
+<ul>
+<li><span class="math inline">\(f(x) \to \infty\)</span> khi <span class="math inline">\(x \to \infty\)</span></li>
+<li><span class="math inline">\(f(x) \to 0\)</span> khi <span class="math inline">\(x\to-\infty\)</span></li>
+<li>Nói cách khác, <span class="math inline">\(f(x)\)</span> nghịch biến (giảm) từ trái qua phải nếu <span class="math inline">\(b&gt;1\)</span></li>
+</ul></li>
+</ul>
+<p>Phần này cần nhớ để tính giới hạn (limit), nhất là các giới hạn có dạng vô định (indeterminate form).</p>
+</div>
+<div id="hàm-số-logarit" class="section level3">
+<h3>Hàm số logarit</h3>
+<p><strong>Định nghĩa</strong></p>
+<p>Hàm số mũ <span class="math inline">\(x=b^y\)</span> với <span class="math inline">\(b\neq1, b&gt;0\)</span> có dạng logarit là: <span class="math inline">\(y=log_{b}x\)</span>.</p>
+<p>Hàm số logarit tự nhiên (natural logarithm) có dạng: <span class="math inline">\(lnx=log_{e}x\)</span>, với cơ số (base) là <span class="math inline">\(e\)</span>.</p>
+<p>Hàm số logarit thập phân có sơ số là 10, có dạng: <span class="math inline">\(logx=log_{10}x\)</span>.</p>
+<p><strong>Tính chất</strong></p>
+<ul>
+<li>Tập xác định (domain - đầu vào) của <span class="math inline">\(f(x)\)</span>: <span class="math inline">\((0, \infty)\)</span>, là các giá trị <span class="math inline">\(x\)</span> khiến hàm số xác định</li>
+<li>Khoảng biến thiên (range - đầu ra) của <span class="math inline">\(f(x)\)</span>: <span class="math inline">\((-\infty, \infty)\)</span>, là các giá trị <span class="math inline">\(y\)</span> hợp lệ</li>
+<li><span class="math inline">\(log_{b}b=1\)</span></li>
+<li><span class="math inline">\(log_{b}1=0\)</span></li>
+<li><span class="math inline">\(log_{b}b^x=x\)</span></li>
+<li><span class="math inline">\(b^{log_{b}x}=x\)</span></li>
+<li>Từ 2 tính chất trên, ta có: nếu <span class="math inline">\(g(x)=log_{b}x\)</span> và <span class="math inline">\(f(x)=b^x\)</span> thì <span class="math inline">\(f(x)=g^{-1}(x)\)</span>, hay nói cách khác, <span class="math inline">\(f(x)\)</span> là hàm ngược (inverse function) của <span class="math inline">\(g(x)\)</span></li>
+<li><span class="math inline">\(log_{b}xy=log_{b}x + log_{b}y\)</span></li>
+<li><span class="math inline">\(log_{b}(\frac{x}{y})=log_{b}x-log_{b}y\)</span></li>
+<li><span class="math inline">\(log_{b}(x^r)=rlog_{b}x\)</span></li>
+</ul>
+<p><strong>Quy tắc đổi cơ số</strong></p>
+<p>Ta có:</p>
+<p><span class="math display">\[log_{b}x=\frac{log_{a}x}{log_{a}b}\]</span></p>
+<p>Ví dụ: <span class="math inline">\(log_{b}x=\frac{lnx}{lnb}\)</span></p>
+</div>
+</div>
+<div id="eulers-number-e" class="section level2">
+<h2>Euler’s number <span class="math inline">\(e\)</span></h2>
+<div id="định-nghĩa-thông-qua-tăng-trưởng-lũy-tiến" class="section level3">
+<h3>Định nghĩa thông qua tăng trưởng lũy tiến</h3>
+<p>Ta có định nghĩa <span class="math inline">\(e\)</span>:</p>
+<p><span class="math display">\[\begin{aligned}
+e
+&amp;=\lim_{n\to\infty} \left(1+\frac{1}{n}\right)^n \\
+&amp;=\lim_{n\to0} \left(1+\frac{1}{n}\right)^\frac{1}{n} \\
+&amp;= 2.71828...
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(e\)</span> là một hằng số toán học tương tự với <span class="math inline">\(\pi\)</span>, ở chỗ cả 2 hằng số này đều diễn giải các mối quan hệ trong tự nhiên. Đối với <span class="math inline">\(\pi\)</span>, đó là mối quan hệ giữa bán kính và chu vi đường tròn, còn với <span class="math inline">\(e\)</span>, đó là tốc độ tăng trưởng của sự vật khi chúng tăng trưởng với tốc độ tương ứng với chính quy mô của sự vật đó.</p>
+<p>Nghe thì có vẻ phức tạp, nhưng thực tế mô hình tăng trường này là mô hình tăng trưởng của rất nhiều sự vật và hiện tượng trong tự nhiên. Đối với kinh tế-tài chính, ta có tốc độ tăng trưởng lãi kép (continuous compound interest) khi đầu tư và liên tục (continuously) tái đầu tư lại các khoản lãi. Đối với các hiện tượng tự nhiên, ta có tăng trưởng dân số, hay thậm chí là tăng trưởng âm (giảm xuống) đối với nhiệt độ.</p>
+<p>Cần phân biệt exponential growth và polynomial growth. Exponential growth có thể dịch sang tiếng việt là <em>tăng trưởng lũy tiến</em>, còn polynomial growth là tăng trưởng lũy thừa. Ví dụ, dãy số [1, 2, 4, 8, 16, …] đang tăng trưởng lũy thừa theo <span class="math inline">\(x^2\)</span>.</p>
+</div>
+<div id="định-nghĩa-e-với-dãy-số-vô-hạn" class="section level3">
+<h3>Định nghĩa e với dãy số vô hạn</h3>
+<p><span class="math inline">\(e\)</span> còn được định nghĩa là tổng của dãy số vô hạn:</p>
+<p><span class="math display">\[\begin{aligned}
+e
+&amp;=\sum_{k=0}^{\infty} \frac{1}{k!} \\
+&amp;=\frac{1}{1!}+\frac{1}{2!}+\frac{1}{3!}+\frac{1}{4!}+...
+\end{aligned}
+\]</span></p>
+<p>Định nghĩa này có thể chứng minh được từ định nghĩa đầu tiên:</p>
+<p>Ta có định lý nhị thức (Binomial Theorem):</p>
+<p><span class="math display">\[(x+y)^n=\sum_{k=0}^{n}{n \choose k}x^{n-k}y^k\]</span></p>
+<p>Trong đó: <span class="math inline">\({n \choose k}=\frac{n!}{k!(n-k)!}\)</span> là hệ số nhị thức.</p>
+<p>Suy ra:</p>
+<p><span class="math display">\[\begin{aligned}
+e
+&amp;=(1+\frac{1}{n})^n \\
+&amp;=\sum_{k=0}^{n}{n \choose k}\frac{1}{n^k} \\
+&amp;=\sum_{k=0}^{n}\frac{n!}{k!(n-k)!}\frac{1}{n^k} \\
+&amp;=\sum_{k=0}^{n}\frac{1}{n^k}A(n,k)\frac{1}{k!},\ \ \ A(n,k)=n(n-1)(n-2)(n-3)...\\
+&amp;=\sum_{k=0}^{n}\frac{1}{k!}\frac{n}{n}\frac{n-1}{n}\frac{n-2}{n}\frac{n-3}{n}...\\
+\end{aligned}
+\]</span></p>
+<p>Khi <span class="math inline">\(n \to \infty\)</span>, mỗi phần tử trong tổng ở trên <span class="math inline">\(\to \frac{1}{k!}\)</span>.</p>
+<p>Vì vậy: <span class="math inline">\(e=\left(1+\frac{1}{n}\right)^n\to\sum_{k=0}^{\infty}\frac{1}{k!}\)</span></p>
+<p>Hay: <span class="math inline">\(e=\lim_{n\to\infty} \left(1+\frac{1}{n}\right)^n=\sum_{k=0}^{\infty}\frac{1}{k!}\)</span></p>
+</div>
+<div id="đạo-hàm-của-expx" class="section level3">
+<h3>Đạo hàm của <span class="math inline">\(exp(x)\)</span></h3>
+<p>Ta có:</p>
+<p><span class="math display">\[\frac{d}{dx}\left[e^x\right]= e^x\]</span></p>
+<p>Hoàn toàn có thể chứng minh tính chất này bằng cách sử dụng định nghĩa giới hạn.</p>
+</div>
+</div>
+<div id="một-số-điểm-cần-lưu-ý-về-giới-hạn" class="section level2">
+<h2>Một số điểm cần lưu ý về giới hạn</h2>
+<div id="quy-tắc-lhospital" class="section level3">
+<h3>Quy tắc L’Hospital</h3>
+<p>Quy tắc L’Hospital được sử dụng để tính giới hạn của một số dạng giới hạn vô định (indeterminate forms) như <span class="math inline">\(0/0\)</span>, <span class="math inline">\(\pm\infty/\pm\infty\)</span>, <span class="math inline">\((0)(\pm\infty)\)</span>, <span class="math inline">\(1^{\infty}\)</span>, <span class="math inline">\(0^0\)</span>, <span class="math inline">\(\infty^0\)</span>, <span class="math inline">\(\infty-\infty\)</span>.</p>
+<p>Quy tắc được sử dụng như sau:</p>
+<p>Nếu ta có một trong các dạng sau đây:</p>
+<p><span class="math display">\[\lim_{x\to a}\frac{f(x)}{g(x)}=\frac{0}{0}\]</span></p>
+<p>hoặc:
+<span class="math display">\[\lim_{x\to a}\frac{f(x)}{g(x)}=\frac{\pm\infty}{\pm\infty}\]</span></p>
+<p>với <span class="math inline">\(a\in \mathbf{R}\)</span> hoặc <span class="math inline">\(a=\pm\infty\)</span>. Khi đó ta có:</p>
+<p><span class="math display">\[\lim_{x\to a}\frac{f(x)}{g(x)}=\lim_{x\to a}\frac{f&#39;(x)}{g&#39;(x)}\]</span></p>
+</div>
+<div id="chứng-minh-định-nghĩa-ex-từ-định-nghĩa-của-e" class="section level3">
+<h3>Chứng minh định nghĩa <span class="math inline">\(e^x\)</span> từ định nghĩa của <span class="math inline">\(e\)</span></h3>
+<p>Từ định nghĩa của <span class="math inline">\(e\)</span>, khi sử dụng quy tắc L’Hospital, có thể chứng minh được:</p>
+<p><span class="math display">\[e^x=\lim_{n\to\infty}\left(1+\frac{x}{n}\right)^n\]</span></p>
+<p>Có <span class="math inline">\(y=\left(1+\frac{x}{n}\right)^n\)</span></p>
+<p>Như vậy:</p>
+<p><span class="math display">\[
+\begin{aligned}
+ln(y)&amp;=ln\left[\left(1+\frac{x}{n}\right)^n\right] \\
+\iff\ln(y)&amp;=n.ln\left(\frac{n+x}{n}\right) \\
+\iff\lim_{n\to\infty}\ln(y)&amp;=\lim_{n\to\infty}n.ln\left(\frac{n+x}{n}\right) \\
+&amp;=\lim_{n\to\infty}\frac{ln\left(\frac{n+x}{n}\right)}{\frac{1}{n}} \\
+&amp;=\lim_{n\to\infty}\frac{\frac{n}{n+x}\frac{-x}{n^2}}{\frac{-1}{n^2}} \\
+&amp;=\lim_{n\to\infty}\frac{xn}{n+x} \\
+&amp;=\lim_{n\to\infty}x \\
+&amp;=x
+\end{aligned}
+\]</span></p>
+<p>Vì vậy:</p>
+<p><span class="math display">\[
+\begin{aligned}
+x
+&amp;=\lim_{n\to\infty}\ln(y) \\
+\iff e^x&amp;=e^{\lim_{n\to\infty}\ln(y)} \\
+&amp;=\lim_{n\to\infty}e^{ln(y)} \\
+&amp;=\lim_{n\to\infty}y \\
+&amp;=\lim_{n\to\infty}\left(1+\frac{x}{n}\right)^n \\
+\end{aligned}
+\]</span></p>
+<p>Ta sẽ dùng lại định nghĩa này để chứng minh công thức PMF của phân phối Poisson.</p>
+</div>
+</div>

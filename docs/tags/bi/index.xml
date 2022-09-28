@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>bi on truonghm</title>
+    <link>https://truonghm.github.io/blog/tags/bi/</link>
+    <description>Recent content in bi on truonghm</description>
+    <image>
+      <url>https://truonghm.github.io/blog/papermod-cover.png</url>
+      <link>https://truonghm.github.io/blog/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://truonghm.github.io/blog/tags/bi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting Started with Looker</title>
+      <link>https://truonghm.github.io/blog/post/20220224_getting_started_with_looker/</link>
+      <pubDate>Thu, 24 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://truonghm.github.io/blog/post/20220224_getting_started_with_looker/</guid>
+      <description>Terms &amp;amp; Concepts Below is a diagram that shows the relationships between concepts/functions of Looker. You can also see this flowchart as the journey of a Looker user, who starts by writing an SQL query, and ends with a dashboard.
+flowchart LR B(Views) --&gt;|Model| C(Explore) subgraph data modelling direction LR A[DB table or SQL queries] --&gt; B end subgraph visualization and analysis direction RL C --&gt; D[Dashboards] C --&gt; E[Looks] D --&gt; E end Concept Description Physical Entity in Looker Creator User Equivalent in other BI tools Layer Views From a database table of SQL queries, we can create views (note the plural form).</description>
+    </item>
+    
+  </channel>
+</rss>
