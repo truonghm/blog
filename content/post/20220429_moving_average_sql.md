@@ -76,7 +76,7 @@ FROM pages
 ORDER BY date
 ```
 
-Take note of the use of the frame clause  `BETWEEN N-1 PRECEDING` for an $N$-day moving window.
+Take note of the use of the frame clause  `BETWEEN N-1 PRECEDING` for an _N_-day moving window.
 
 There is, however, a problem here: It will include additional data prior to the moving window if there are missing days. For instance, there is no data for 2020-02-08 in our table, so the above query will return data from 2020-02-06, which is more than three days ago.
 
@@ -192,7 +192,7 @@ ORDER BY date
 
 ## Adding weights
 
-Weights can be added because we are manually writing each part of the moving average;say we wanted to emphasize the most recent data points by employing the weights $(0.6, 0.24, 0.16)$.Simply include the weights in the query and you're done:
+Weights can be added because we are manually writing each part of the moving average;say we wanted to emphasize the most recent data points by employing the weights _(0.6, 0.24, 0.16)_.Simply include the weights in the query and you're done:
 
 ```sql
 SELECT *,
@@ -257,7 +257,7 @@ Finally, we can fix the problem by using weights.
 
 ## Weighted moving average
 
-The weights can be stored in a separate table for the purpose of calculating the weighted moving average. We could have a table like this, for instance, if we wanted the most recent data point to have a weight of $0.6$, the middle point to have a weight of $0.24$, and the furthest point to have a weight of $0.16$.
+The weights can be stored in a separate table for the purpose of calculating the weighted moving average. We could have a table like this, for instance, if we wanted the most recent data point to have a weight of _0.6_, the middle point to have a weight of _0.24_, and the furthest point to have a weight of _0.16_.
 
 | idx | weight |
 |:---:|:------:|
