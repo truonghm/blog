@@ -10,7 +10,16 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://truonghm.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://truonghm.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>sql</title>
+      <link>https://truonghm.github.io/blog/tags/sql/</link>
+      <pubDate>Fri, 29 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://truonghm.github.io/blog/tags/sql/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>bi</title>
       <link>https://truonghm.github.io/blog/tags/bi/</link>

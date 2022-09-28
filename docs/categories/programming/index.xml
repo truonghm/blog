@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>programming on truonghm</title>
+    <link>https://truonghm.github.io/blog/categories/programming/</link>
+    <description>Recent content in programming on truonghm</description>
+    <image>
+      <url>https://truonghm.github.io/blog/papermod-cover.png</url>
+      <link>https://truonghm.github.io/blog/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 13 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://truonghm.github.io/blog/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ôn tập Python - mutable/immutable object</title>
+      <link>https://truonghm.github.io/blog/post/20210613_python_review_01/</link>
+      <pubDate>Sun, 13 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://truonghm.github.io/blog/post/20210613_python_review_01/</guid>
+      <description>Ôn tập lại Python 1 tí cho vui - Phần 1: mutable/immutable object Đây là bài viết đầu tiên trong series ôn tập lại 1 số kiến thức trong Python của mình, dự kiến sẽ gồm các phần sau:
+mutable/immutable objects functional programming in Python OOP in Python iterable list,dictionary, tuple &amp;amp; set handling path generator handling exception handling path input/output others (bitwise operator, numpy, pandas, matplotlib) Mutable/Immutable là gì Có 2 loại object trong Python: mutable (có thể thay đổi) và immutable (không thể thay đổi).</description>
+    </item>
+    
+  </channel>
+</rss>

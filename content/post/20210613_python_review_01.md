@@ -14,7 +14,7 @@ searchHidden: yes
 ShowReadingTime: yes
 ShowBreadCrumbs: yes
 ShowPostNavLinks: yes
-categories: "learning"
+categories: "programming"
 tags: ["python", "OOP"]
 series: ["python_review"]
 ---

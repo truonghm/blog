@@ -21,40 +21,5 @@
 flowchart LR B(Views) --&gt;|Model| C(Explore) subgraph data modelling direction LR A[DB table or SQL queries] --&gt; B end subgraph visualization and analysis direction RL C --&gt; D[Dashboards] C --&gt; E[Looks] D --&gt; E end Concept Description Physical Entity in Looker Creator User Equivalent in other BI tools Layer Views From a database table of SQL queries, we can create views (note the plural form).</description>
     </item>
     
-    <item>
-      <title>Ôn tập Python - mutable/immutable object</title>
-      <link>https://truonghm.github.io/blog/post/20210613_python_review_01/</link>
-      <pubDate>Sun, 13 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://truonghm.github.io/blog/post/20210613_python_review_01/</guid>
-      <description>Ôn tập lại Python 1 tí cho vui - Phần 1: mutable/immutable object Đây là bài viết đầu tiên trong series ôn tập lại 1 số kiến thức trong Python của mình, dự kiến sẽ gồm các phần sau:
-mutable/immutable objects functional programming in Python OOP in Python iterable list,dictionary, tuple &amp;amp; set handling path generator handling exception handling path input/output others (bitwise operator, numpy, pandas, matplotlib) Mutable/Immutable là gì Có 2 loại object trong Python: mutable (có thể thay đổi) và immutable (không thể thay đổi).</description>
-    </item>
-    
-    <item>
-      <title>Math Review 02 - Toán tổ hợp</title>
-      <link>https://truonghm.github.io/blog/post/20210113_math_review_02/</link>
-      <pubDate>Wed, 13 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://truonghm.github.io/blog/post/20210113_math_review_02/</guid>
-      <description>library(tidyverse, quietly = TRUE) library(kableExtra, quietly = TRUE) Phần này tập trung vào ôn tập lại các kiến thức về tổ hợp/chỉnh hợp/hoán vị. Tham khảo một số bài tập được trích ra từ cuốn Combinatorics and Graph Theory - John Harris tại đây.
-Toán học tổ hợp Ngoài việc bản chất toán học tổ hợp (Combinatorics) đã khó, mọi thứ còn trở nên khó hơn vì mảng toán này có rất nhiều kí hiệu và thuật ngữ, cũng như sự khác biệt trong thuật ngữ của tiếng Anh và tiếng Việt.</description>
-    </item>
-    
-    <item>
-      <title>Math Review 01 - Hàm số mũ và hàm số logarit</title>
-      <link>https://truonghm.github.io/blog/post/20201221_math_review_01/</link>
-      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://truonghm.github.io/blog/post/20201221_math_review_01/</guid>
-      <description>library(tidyverse, quietly = TRUE) library(kableExtra) Hàm số mũ và hàm số logarit Hàm số mũ Định nghĩa
-Hàm số \(f(x) = b^x\) là một hàm số mũ nếu \(b&amp;gt;0\) và \(b \neq 1\).
-Tính chất
-\(f(0) = 1\), hay nói cách khác, mọi đồ thị của hàm số mũ đều đi qua điểm \((0,1)\), bất kể giá trị của \(b\).
-\(f(x) \neq 0\)
-\(f(x) &amp;gt; 0\)
-Tập xác định (domain - đầu vào) của \(f(x)\): \((-\infty, \infty)\), là các giá trị \(x\) khiến hàm số xác định</description>
-    </item>
-    
   </channel>
 </rss>
