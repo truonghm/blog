@@ -1,7 +1,5 @@
 ---
 title: "About"
-site-url: https://truonghm.github.io/
-description: : "TruongHM's homepage"
 image: profile.jpg
 about:
   template: jolla

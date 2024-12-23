@@ -3,6 +3,8 @@ project:
 
 website:
   title: "blog"
+  site-url: https://truonghm.github.io/
+  description: "TruongHM's homepage"
   navbar:
     right:
       - about.qmd
@@ -14,6 +16,5 @@ format:
   html:
     theme: zephyr
     css: styles.css
-
-
-
+execute:
+  freeze: auto
