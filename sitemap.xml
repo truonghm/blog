@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://truonghm.github.io/posts/welcome/index.html</loc>
-    <lastmod>2024-12-23T11:22:49.335Z</lastmod>
+    <loc>https://truonghm.github.io/index.html</loc>
+    <lastmod>2024-12-23T11:25:05.488Z</lastmod>
   </url>
   <url>
-    <loc>https://truonghm.github.io/index.html</loc>
-    <lastmod>2024-12-23T11:22:48.686Z</lastmod>
+    <loc>https://truonghm.github.io/posts/welcome/index.html</loc>
+    <lastmod>2024-12-23T11:25:05.489Z</lastmod>
   </url>
   <url>
     <loc>https://truonghm.github.io/about.html</loc>
-    <lastmod>2024-12-23T11:22:48.174Z</lastmod>
+    <lastmod>2024-12-23T11:25:05.488Z</lastmod>
   </url>
   <url>
     <loc>https://truonghm.github.io/posts/post-with-code/index.html</loc>
-    <lastmod>2024-12-23T11:22:49.009Z</lastmod>
+    <lastmod>2024-12-23T11:25:05.489Z</lastmod>
   </url>
 </urlset>
