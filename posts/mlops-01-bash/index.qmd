@@ -1,0 +1,44 @@
+---
+title: "Learning MLOps (Part 1): Linux & Bash Scripting"
+author: "Truong Hoang"
+date: "2024-12-23"
+categories: [code, mlops, linux, learning]
+image: "image.jpg"
+---
+
+Hi everyone, beginning today, I'm going to start a series of posts about learning MLOps. This series will cover a wide range of topics as I dive into the world of MLOps, which might include, but not limited to:
+
+- Linux & Bash Scripting
+- Advanced Python Packaging, Dependency Management and Workflows (pre-commit, uv, packaging, etc.)
+- Deployment: WebAPI, Containerization & Orchestration, CI/CD, IaC
+- Cloud Engineering (AWS, GCP)
+- Data Engineering
+- ML System Design
+
+This is mostly for my own learning purpose, but I hope it can be helpful for others who are also interested in MLOps. Now, let's get started with the first topic: Linux & Bash Scripting.
+
+## Why Linux?
+
+Linux is the most popular operating system for running servers and cloud computing, while also being the dominant OS for software engineering development, which enccompasses ML engineering. Therefore, it's essential for ML engineers to have a good understanding of Linux. Currently, I'm using Ubuntu 24.04.1 LTS as my main OS (see specs below).
+
+```raw
+truonghm@truonghm-g14 
+--------------------- 
+OS: Ubuntu 24.04.1 LTS x86_64 
+Host: ROG Zephyrus G14 GA403UV_GA403UV 1.0 
+Kernel: 6.9.9-060909-generic 
+Uptime: 5 hours, 27 mins 
+Packages: 2497 (dpkg), 11 (snap) 
+Shell: zsh 5.9 
+Resolution: 1920x1080 
+DE: GNOME 46.0 
+WM: Mutter 
+WM Theme: Adwaita 
+Theme: Yaru-sage-dark [GTK2/3] 
+Icons: Yaru-sage [GTK2/3] 
+Terminal: tilix 
+CPU: AMD Ryzen 9 8945HS w/ Radeon 780M Graphics (16) @ 4.000GHz 
+GPU: AMD ATI 65:00.0 Phoenix3 
+GPU: NVIDIA GeForce RTX 4060 Max-Q / Mobile 
+Memory: 14381MiB / 31378MiB 
+```
