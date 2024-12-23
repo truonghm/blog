@@ -1,0 +1,19 @@
+project:
+  type: website
+
+website:
+  title: "blog"
+  navbar:
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/truonghm
+      - icon: linkedin
+        href: https://www.linkedin.com/in/hmtrg/
+format:
+  html:
+    theme: zephyr
+    css: styles.css
+
+
+
