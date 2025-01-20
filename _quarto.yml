@@ -2,9 +2,11 @@ project:
   type: website
 
 website:
-  title: "blog"
-  site-url: https://truonghm.github.io/
+  title: "Truong Hoang"
+  site-url: https://truonghm.github.io/blog
   description: "TruongHM's homepage"
+  page-footer:
+    left: "Website made with [Quarto](https://quarto.org/), by Truong Hoang. License: [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/)."
   navbar:
     right:
       - about.qmd
@@ -14,7 +16,17 @@ website:
         href: https://www.linkedin.com/in/hmtrg/
 format:
   html:
+    link-external-icon: true
+    link-external-newwindow: true
+    smooth-scroll: true
     theme: zephyr
     css: styles.css
+    citations-hover: true
+    footnotes-hover: true
+    toc: true
+    code-link: true
+  
+editor: visual
+
 execute:
   freeze: auto
