@@ -1,5 +1,5 @@
 ---
-title: "blog"
+title: "Truong Hoang"
 listing:
   contents: posts
   sort: "date desc"
