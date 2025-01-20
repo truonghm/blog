@@ -5,16 +5,16 @@
       xmlns:dc="http://purl.org/dc/elements/1.1/" 
       version="2.0">
 <channel>
-<title>blog</title>
-<link>https://truonghm.github.io/</link>
-<atom:link href="https://truonghm.github.io/index.xml" rel="self" type="application/rss+xml"/>
+<title>Truong Hoang</title>
+<link>https://truonghm.github.io/blog/</link>
+<atom:link href="https://truonghm.github.io/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>TruongHM&#39;s homepage</description>
 <generator>quarto-1.6.40</generator>
 <lastBuildDate>Mon, 20 Jan 2025 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Transitioning from pip to uv</title>
   <dc:creator>Truong Hoang</dc:creator>
-  <link>https://truonghm.github.io/posts/pip-uv-transition/</link>
+  <link>https://truonghm.github.io/blog/posts/pip-uv-transition/</link>
   <description><![CDATA[ 
 
 
@@ -27,7 +27,7 @@
 <p><code>uv</code> is the new kid on the Python package manager block and it’s been making waves. It’s self-described as “an extremely fast Python package and project manager, written in Rust”. The benchmark results are impressive:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://truonghm.github.io/posts/pip-uv-transition/images/2025-01-20-11-42-45.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="uv benchmark"></p>
+<p><img src="https://truonghm.github.io/blog/posts/pip-uv-transition/images/2025-01-20-11-42-45.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="uv benchmark"></p>
 </figure>
 </div>
 <p>I started incorporating <code>uv</code> into the workflow of my Python projects back in early 2024, when it was still version 0.2.x. Back then, <code>uv</code> adopted the <code>pip-tools</code> API and aimed to be a drop-in replacement for <code>pip-tools</code>, which was actually what we were using at the time. The transition was smooth and we didn’t have to change much in our workflow. However, we were also aware of the various limitations of <code>pip-tools</code>, such as having to manage separate <code>requirements.txt</code> and <code>requirements-dev.txt</code> files, which sometimes led to inconsistencies between the two. Thankfully, recent versions of <code>uv</code> have added a new set of uv-native APIs that use a single lockfile in TOML format, which makes packaging and sharing dependencies much easier. In this post, I will share my experience with transitioning from <code>pip</code> / older <code>uv</code> APIs to the new <code>uv</code> APIs.</p>
@@ -845,9 +845,9 @@ font-style: inherit;">source</span> .venv/bin/activate</span></code></pre></div>
   <category>python</category>
   <category>code</category>
   <category>tricks</category>
-  <guid>https://truonghm.github.io/posts/pip-uv-transition/</guid>
+  <guid>https://truonghm.github.io/blog/posts/pip-uv-transition/</guid>
   <pubDate>Mon, 20 Jan 2025 00:00:00 GMT</pubDate>
-  <media:content url="https://truonghm.github.io/posts/pip-uv-transition/image.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://truonghm.github.io/blog/posts/pip-uv-transition/image.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

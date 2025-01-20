@@ -1,1 +1,1 @@
-Sitemap: https://truonghm.github.io/sitemap.xml
+Sitemap: https://truonghm.github.io/blog/sitemap.xml
